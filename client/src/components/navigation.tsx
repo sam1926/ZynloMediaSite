@@ -8,12 +8,14 @@ export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [, navigate] = useLocation();
 
+  const iconColor = isOpen || isScrolled ? "text-dark-gray" : "text-white";
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -83,7 +85,7 @@ export default function Navigation() {
               variant="ghost"
               size="icon"
               onClick={() => setIsOpen(!isOpen)}
-              className="text-dark-gray hover:text-soft-blue"
+              className={`${iconColor} hover:text-soft-blue`}
             >
               {isOpen ? <X className="h-8 w-8" /> : <Menu className="h-8 w-8" />}
             </Button>
@@ -93,31 +95,49 @@ export default function Navigation() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden fixed inset-0 z-[60] bg-white">
+        <div
+          className="md:hidden fixed inset-0 z-[60] bg-white"
+          onClick={() => setIsOpen(false)}
+        >
           {/* Close button in top right */}
           <div className="absolute top-4 right-4">
             <Button
               variant="ghost"
               size="icon"
               onClick={() => setIsOpen(false)}
-              className="text-dark-gray hover:text-soft-blue"
+              className={`${iconColor} hover:text-soft-blue`}
             >
               <X className="h-6 w-6" />
             </Button>
           </div>
           
-          <div className="flex flex-col items-center justify-center h-full space-y-8">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => handleNavigation(item)}
-                className="text-2xl font-montserrat font-semibold text-dark-gray hover:text-soft-blue transition-colors duration-300"
-              >
-                {item.label}
-              </button>
-            ))}
-          </div>
+        <div
+          className="flex flex-col items-center justify-center h-full space-y-8"
+          onClick={(e) => e.stopPropagation()}
+        >
+          {navItems.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => handleNavigation(item)}
+              className="text-2xl font-montserrat font-semibold text-dark-gray hover:text-soft-blue transition-colors duration-300"
+            >
+              {item.label}
+            </button>
+          ))}
         </div>
+
+        {/* Close button at bottom for easier access */}
+        <div className="absolute bottom-4 right-4">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setIsOpen(false)}
+            className={`${iconColor} hover:text-soft-blue`}
+          >
+            <X className="h-6 w-6" />
+          </Button>
+        </div>
+      </div>
       )}
     </nav>
   );

@@ -79,7 +79,7 @@ export default function RecentCampaignsSection() {
     <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 md:mb-12">
           <h2 className="section-title font-montserrat font-bold text-3xl md:text-4xl text-dark-gray mb-4">
             Recent Campaign Success Stories
           </h2>
@@ -90,7 +90,7 @@ export default function RecentCampaignsSection() {
         </div>
 
         {/* Campaigns Grid */}
-        <div className="space-y-16">
+        <div className="space-y-12 md:space-y-16">
           {campaigns.map((campaign, index) => (
             <div
               key={index}
@@ -192,7 +192,7 @@ export default function RecentCampaignsSection() {
         </div>
 
         {/* CTA Section */}
-        <div className="text-center mt-16">
+        <div className="text-center mt-12">
           <div className="bg-white rounded-3xl p-8 md:p-12 shadow-lg">
             <h3 className="font-montserrat font-bold text-2xl md:text-3xl text-dark-gray mb-4">
               Ready to Create Your Success Story?

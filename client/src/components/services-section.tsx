@@ -129,10 +129,10 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section id="services" className="py-20 bg-white relative overflow-hidden">
+    <section id="services" className="py-20 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-12 md:mb-16">
+        <div className="text-center mb-8 md:mb-12">
           <h2 className="section-title font-montserrat font-bold text-3xl md:text-4xl text-dark-gray mb-4">
             Our Services
           </h2>
@@ -140,7 +140,7 @@ export default function ServicesSection() {
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8 md:mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8 md:mb-12">
           {services.map((service, index) => {
             const IconComponent = service.icon;
             return (

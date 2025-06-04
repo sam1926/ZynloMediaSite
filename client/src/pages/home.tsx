@@ -1,4 +1,4 @@
-import { useEffect, useState, lazy, Suspense } from "react";
+import { useEffect, useState } from "react";
 import Navigation from "@/components/navigation";
 import HeroSection from "@/components/hero-section";
 import PortfolioSection from "@/components/portfolio-section";
@@ -9,8 +9,7 @@ import FAQSection from "@/components/faq-section";
 import ContactSection from "@/components/contact-section";
 import Footer from "@/components/footer";
 
-const ServicesSection = lazy(() => import("@/components/services-section"));
-const RecentCampaignsSection = lazy(() => import("@/components/recent-campaigns-section"));
+import ServicesSection from "@/components/services-section";
 import { useGSAPAnimations } from "@/hooks/use-gsap-animations";
 import { MessageCircle, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -46,15 +45,10 @@ export default function Home() {
       <Navigation />
       <main>
         <HeroSection />
-        <Suspense fallback={<div className="py-20 text-center">Loading...</div>}>
-          <ServicesSection />
-        </Suspense>
+        <ServicesSection />
         <PortfolioSection />
         <AboutSection />
         <TestimonialsSection />
-        <Suspense fallback={<div className="py-20 text-center">Loading...</div>}>
-          <RecentCampaignsSection />
-        </Suspense>
         <BlogSection />
         <FAQSection />
         <ContactSection />

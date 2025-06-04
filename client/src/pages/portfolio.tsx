@@ -5,6 +5,7 @@ import { useGSAPAnimations } from "@/hooks/use-gsap-animations";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ExternalLink, Utensils, Shirt, Coffee, Sparkles, Camera, Users, TrendingUp, Calendar, Target, Award } from "lucide-react";
 import { useLocation } from "wouter";
+import ScrollToTopButton from "@/components/scroll-to-top-button";
 
 export default function Portfolio() {
   const [, navigate] = useLocation();
@@ -285,6 +286,7 @@ export default function Portfolio() {
       </main>
       
       <Footer />
+      <ScrollToTopButton />
     </div>
   );
 }

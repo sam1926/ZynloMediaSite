@@ -13,6 +13,7 @@ import Footer from "@/components/footer";
 import { useGSAPAnimations } from "@/hooks/use-gsap-animations";
 import { MessageCircle, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import ScrollToTopButton from "@/components/scroll-to-top-button";
 
 export default function Home() {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -54,7 +55,7 @@ export default function Home() {
         <ContactSection />
       </main>
       <Footer />
-      
+
       {/* Floating Chat Widget */}
       <div className="fixed bottom-6 right-6 z-50">
         <div className="relative">
@@ -107,6 +108,7 @@ export default function Home() {
           </button>
         </div>
       </div>
+      <ScrollToTopButton />
     </div>
   );
 }

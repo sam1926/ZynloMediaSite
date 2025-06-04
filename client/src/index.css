@@ -228,6 +228,17 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Hide scrollbars on mobile */
+@media (max-width: 767px) {
+  body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  body::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .animate-float,

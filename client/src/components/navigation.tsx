@@ -19,6 +19,25 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Prevent background scrolling when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      const scrollY = window.scrollY;
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = "100%";
+    } else {
+      const top = document.body.style.top;
+      if (top) {
+        const scrollY = -parseInt(top);
+        document.body.style.position = "";
+        document.body.style.top = "";
+        document.body.style.width = "";
+        window.scrollTo(0, scrollY);
+      }
+    }
+  }, [isOpen]);
+
   const handleNavigation = (item: { label: string; id: string; isPage?: boolean }) => {
     if (item.isPage) {
       navigate(`/${item.id}`);
@@ -96,7 +115,7 @@ export default function Navigation() {
       {/* Mobile Menu */}
       {isOpen && (
         <div
-          className="md:hidden fixed inset-0 z-[60] bg-white"
+          className="md:hidden fixed inset-0 z-[60] bg-white overflow-y-auto"
           onClick={() => setIsOpen(false)}
         >
           {/* Close button in top right */}

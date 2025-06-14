@@ -1,9 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Utensils, Shirt, Coffee, Sparkles } from "lucide-react";
-import { useLocation } from "wouter";
 
 export default function PortfolioSection() {
-  const [, navigate] = useLocation();
   
   const scrollToContact = () => {
     const element = document.getElementById("contact");
@@ -92,11 +90,11 @@ export default function PortfolioSection() {
         {/* CTA Button */}
         <div className="text-center">
           <Button
-            onClick={() => navigate('/portfolio')}
+            onClick={scrollToContact}
             className="bg-soft-blue text-white font-montserrat font-semibold px-8 py-4 rounded-2xl hover:bg-blue-400 transform hover:scale-105 transition-all duration-300 shadow-lg"
             size="lg"
           >
-            See Full Portfolio
+            Start Your Project
             <ExternalLink className="ml-3 h-5 w-5" />
           </Button>
         </div>

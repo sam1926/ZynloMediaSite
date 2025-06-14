@@ -63,8 +63,6 @@ export default function Navigation() {
 
   const navItems = [
     { label: "Home", id: "home" },
-    { label: "Services", id: "services" },
-    { label: "Portfolio", id: "portfolio", isPage: true },
     { label: "About", id: "about" },
     { label: "Contact", id: "contact" }
   ];

@@ -1,14 +1,10 @@
-import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { useEffect, useState } from "react";
 import { useLocation } from "wouter";
 
 export default function Navigation() {
-  const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [, navigate] = useLocation();
 
-  const iconColor = isOpen || isScrolled ? "text-dark-gray" : "text-white";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,24 +15,6 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Prevent background scrolling when mobile menu is open
-  useEffect(() => {
-    if (isOpen) {
-      const scrollY = window.scrollY;
-      document.body.style.position = "fixed";
-      document.body.style.top = `-${scrollY}px`;
-      document.body.style.width = "100%";
-    } else {
-      const top = document.body.style.top;
-      if (top) {
-        const scrollY = -parseInt(top);
-        document.body.style.position = "";
-        document.body.style.top = "";
-        document.body.style.width = "";
-        window.scrollTo(0, scrollY);
-      }
-    }
-  }, [isOpen]);
 
   const handleNavigation = (item: { label: string; id: string; isPage?: boolean }) => {
     if (item.isPage) {
@@ -58,7 +36,6 @@ export default function Navigation() {
         }
       }
     }
-    setIsOpen(false);
   };
 
   const navItems = [
@@ -81,8 +58,8 @@ export default function Navigation() {
             </div>
           </div>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:block">
+          {/* Navigation Links */}
+          <div className="block">
             <div className="ml-10 flex items-baseline space-x-8">
               {navItems.map((item) => (
                 <button
@@ -96,66 +73,9 @@ export default function Navigation() {
             </div>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsOpen(!isOpen)}
-              className={`${iconColor} hover:text-soft-blue`}
-            >
-              {isOpen ? <X className="h-8 w-8" /> : <Menu className="h-8 w-8" />}
-            </Button>
-          </div>
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div
-          className="md:hidden fixed inset-0 z-[60] bg-white overflow-y-auto"
-          onClick={() => setIsOpen(false)}
-        >
-          {/* Close button in top right */}
-          <div className="absolute top-4 right-4">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsOpen(false)}
-              className={`${iconColor} hover:text-soft-blue`}
-            >
-              <X className="h-6 w-6" />
-            </Button>
-          </div>
-          
-        <div
-          className="flex flex-col items-center justify-center h-full space-y-8"
-          onClick={(e) => e.stopPropagation()}
-        >
-          {navItems.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => handleNavigation(item)}
-              className="text-2xl font-montserrat font-semibold text-dark-gray hover:text-soft-blue transition-colors duration-300"
-            >
-              {item.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Close button at bottom for easier access */}
-        <div className="absolute bottom-4 right-4">
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => setIsOpen(false)}
-            className={`${iconColor} hover:text-soft-blue`}
-          >
-            <X className="h-6 w-6" />
-          </Button>
-        </div>
-      </div>
-      )}
     </nav>
   );
 }

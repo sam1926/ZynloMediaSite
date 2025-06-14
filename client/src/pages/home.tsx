@@ -11,6 +11,20 @@ export default function Home() {
   useGSAPAnimations();
 
   useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const section = params.get('section');
+    if (section) {
+      const element = document.getElementById(section);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+      params.delete('section');
+      const newUrl = window.location.pathname + (params.toString() ? `?${params.toString()}` : '');
+      window.history.replaceState(null, '', newUrl);
+    }
+  }, []);
+
+  useEffect(() => {
     // Set document title for SEO
     document.title = "ZynloMedia | Social Media Marketing Brisbane";
     

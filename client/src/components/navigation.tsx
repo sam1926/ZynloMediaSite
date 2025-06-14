@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "wouter";
+import Logo from "./logo";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -20,15 +21,8 @@ export default function Navigation() {
     if (item.isPage) {
       navigate(`/${item.id}`);
     } else {
-      // If we're not on home page, navigate there first
       if (window.location.pathname !== '/') {
-        navigate('/');
-        setTimeout(() => {
-          const element = document.getElementById(item.id);
-          if (element) {
-            element.scrollIntoView({ behavior: "smooth" });
-          }
-        }, 100);
+        navigate(`/?section=${item.id}`);
       } else {
         const element = document.getElementById(item.id);
         if (element) {
@@ -52,10 +46,7 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-16 md:h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <div className="text-2xl md:text-3xl font-montserrat font-bold text-dark-gray">
-              <span className="bg-soft-blue text-dark-gray px-2 py-1 rounded-lg mr-1">Z</span>
-              ynloMedia
-            </div>
+            <Logo />
           </div>
 
           {/* Navigation Links */}

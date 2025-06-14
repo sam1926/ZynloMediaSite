@@ -1,5 +1,6 @@
 import React from "react";
 import { Instagram, Facebook, Linkedin } from "lucide-react";
+import Logo from "./logo";
 
 export default function Footer() {
   const scrollToSection = (sectionId: string) => {
@@ -29,9 +30,8 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-8">
           {/* Brand Column */}
           <div className="footer-brand">
-            <div className="text-2xl font-montserrat font-bold mb-4">
-              <span className="bg-soft-blue text-dark-gray px-2 py-1 rounded-lg mr-1">Z</span>
-              ynloMedia
+            <div className="mb-4">
+              <Logo />
             </div>
             <p className="text-gray-400 mb-4">
               Brisbane's premier social media marketing agency, helping local businesses grow their online presence.
@@ -74,11 +74,11 @@ export default function Footer() {
             </div>
             <p className="text-gray-400 text-sm mt-4">
               Email:{" "}
-              <a 
-                href="mailto:hello@zynlomedia.com.au"
+              <a
+                href="mailto:zylnomedia@gmail.com"
                 className="text-soft-blue hover:text-bright-orange transition-colors duration-300"
               >
-                hello@zynlomedia.com.au
+                zylnomedia@gmail.com
               </a>
             </p>
           </div>

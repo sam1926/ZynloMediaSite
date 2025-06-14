@@ -67,8 +67,8 @@ export default function ContactSection() {
     {
       icon: Mail,
       title: "Email",
-      content: "hello@zynlomedia.com.au",
-      href: "mailto:hello@zynlomedia.com.au"
+      content: "zylnomedia@gmail.com",
+      href: "mailto:zylnomedia@gmail.com"
     },
     {
       icon: MapPin,
@@ -231,11 +231,11 @@ export default function ContactSection() {
             {/* Direct Contact Note */}
             <p className="text-center text-sm text-gray-600 mt-6">
               Or email us directly at{" "}
-              <a 
-                href="mailto:hello@zynlomedia.com.au"
+              <a
+                href="mailto:zylnomedia@gmail.com"
                 className="text-soft-blue hover:text-bright-orange transition-colors duration-300 font-semibold"
               >
-                hello@zynlomedia.com.au
+                zylnomedia@gmail.com
               </a>
             </p>
           </div>

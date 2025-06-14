@@ -9,6 +9,9 @@ export const useGSAPAnimations = () => {
     
     initialized.current = true;
 
+    // Determine if we are on a small screen
+    const isMobile = window.matchMedia("(max-width: 767px)").matches;
+
     // Premium hero animations with text reveal
     const heroTimeline = gsap.timeline();
     
@@ -45,64 +48,66 @@ export const useGSAPAnimations = () => {
         ease: "power2.out"
       }, "-=0.5");
 
-    // Section titles
-    gsap.utils.toArray(".section-title").forEach((title: any) => {
-      gsap.from(title, createScrollTrigger(title, animations.fadeInUp));
-    });
-
-    // Service cards
-    gsap.from(".service-card", createScrollTrigger(".service-card", {
-      ...animations.fadeInUp,
-      y: 60,
-      stagger: 0.2
-    }));
-
-    // Portfolio items
-    gsap.from(".portfolio-item", createScrollTrigger(".portfolio-item", {
-      ...animations.scaleIn,
-      stagger: 0.15
-    }));
-
-    // About section
-    gsap.from(".about-image", createScrollTrigger(".about-image", animations.slideInLeft));
-    gsap.from(".about-content", createScrollTrigger(".about-content", animations.slideInRight));
-
-    // Testimonial cards
-    gsap.from(".testimonial-card", createScrollTrigger(".testimonial-card", {
-      ...animations.fadeInUp,
-      y: 80,
-      stagger: 0.3
-    }));
-
-    // Contact section
-    gsap.from(".contact-info", createScrollTrigger(".contact-info", animations.slideInLeft));
-    gsap.from(".contact-form", createScrollTrigger(".contact-form", animations.slideInRight));
-
-    // Floating background elements
-    gsap.to(".floating-element", {
-      yPercent: -50,
-      ease: "none",
-      scrollTrigger: {
-        trigger: "#home",
-        start: "top bottom",
-        end: "bottom top",
-        scrub: true
-      }
-    });
-
-    // Parallax effects
-    gsap.utils.toArray(".floating-element").forEach((element: any, index: number) => {
-      gsap.to(element, {
-        y: `random(-100, 100)`,
-        x: `random(-50, 50)`,
-        rotation: `random(-15, 15)`,
-        duration: `random(8, 12)`,
-        ease: "sine.inOut",
-        repeat: -1,
-        yoyo: true,
-        delay: index * 2
+    if (!isMobile) {
+      // Section titles
+      gsap.utils.toArray(".section-title").forEach((title: any) => {
+        gsap.from(title, createScrollTrigger(title, animations.fadeInUp));
       });
-    });
+
+      // Service cards
+      gsap.from(".service-card", createScrollTrigger(".service-card", {
+        ...animations.fadeInUp,
+        y: 60,
+        stagger: 0.2
+      }));
+
+      // Portfolio items
+      gsap.from(".portfolio-item", createScrollTrigger(".portfolio-item", {
+        ...animations.scaleIn,
+        stagger: 0.15
+      }));
+
+      // About section
+      gsap.from(".about-image", createScrollTrigger(".about-image", animations.slideInLeft));
+      gsap.from(".about-content", createScrollTrigger(".about-content", animations.slideInRight));
+
+      // Testimonial cards
+      gsap.from(".testimonial-card", createScrollTrigger(".testimonial-card", {
+        ...animations.fadeInUp,
+        y: 80,
+        stagger: 0.3
+      }));
+
+      // Contact section
+      gsap.from(".contact-info", createScrollTrigger(".contact-info", animations.slideInLeft));
+      gsap.from(".contact-form", createScrollTrigger(".contact-form", animations.slideInRight));
+
+      // Floating background elements
+      gsap.to(".floating-element", {
+        yPercent: -50,
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#home",
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true
+        }
+      });
+
+      // Parallax effects
+      gsap.utils.toArray(".floating-element").forEach((element: any, index: number) => {
+        gsap.to(element, {
+          y: `random(-100, 100)`,
+          x: `random(-50, 50)`,
+          rotation: `random(-15, 15)`,
+          duration: `random(8, 12)`,
+          ease: "sine.inOut",
+          repeat: -1,
+          yoyo: true,
+          delay: index * 2
+        });
+      });
+    }
 
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());

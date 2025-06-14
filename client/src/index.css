@@ -254,3 +254,11 @@ html {
     scroll-behavior: auto;
   }
 }
+
+/* Logo styles */
+.logo-container:hover .circle-1 {
+  transform: translate(-0.5rem, -50%);
+}
+.logo-container:hover .circle-2 {
+  transform: translate(0.5rem, -50%);
+}

@@ -10,7 +10,10 @@ export default function HeroSection() {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-off-white to-white pt-20">
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-off-white to-white pt-20 snap-start"
+    >
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="floating-element absolute top-20 left-10 w-32 h-32 bg-soft-blue/10 rounded-full blur-xl animate-float"></div>
@@ -28,7 +31,9 @@ export default function HeroSection() {
               </div>
               <div className="text-reveal">
                 <div className="text-reveal-inner">
-                  <span className="text-bright-orange">Shops & Restaurants</span>
+                  <span className="text-bright-orange">
+                    Shops & Restaurants
+                  </span>
                 </div>
               </div>
               <div className="text-reveal">
@@ -36,7 +41,8 @@ export default function HeroSection() {
               </div>
             </h1>
             <p className="hero-subtitle text-lg md:text-xl text-gray-600 mb-8 max-w-2xl">
-              Content creation, community building, and ad campaigns designed for local brands that want to stand out online.
+              Content creation, community building, and ad campaigns designed
+              for local brands that want to stand out online.
             </p>
             <div className="hero-cta">
               <Button
@@ -62,7 +68,9 @@ export default function HeroSection() {
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <div className="w-8 h-8 bg-soft-blue rounded-full"></div>
-                        <div className="text-xs font-semibold">Brisbane Café</div>
+                        <div className="text-xs font-semibold">
+                          Brisbane Café
+                        </div>
                       </div>
                       <Heart className="w-4 h-4 text-red-500 fill-current" />
                     </div>

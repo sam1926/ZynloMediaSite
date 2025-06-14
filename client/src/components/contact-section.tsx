@@ -6,7 +6,14 @@ import { useMutation } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import { Mail, MapPin, Clock, Send } from "lucide-react";
@@ -46,7 +53,7 @@ export default function ContactSection() {
       });
       form.reset();
       setIsSubmitted(true);
-      
+
       // Reset submitted state after 3 seconds
       setTimeout(() => setIsSubmitted(false), 3000);
     },
@@ -68,31 +75,36 @@ export default function ContactSection() {
       icon: Mail,
       title: "Email",
       content: "zylnomedia@gmail.com",
-      href: "mailto:zylnomedia@gmail.com"
+      href: "mailto:zylnomedia@gmail.com",
     },
     {
       icon: MapPin,
       title: "Location",
-      content: "Brisbane, QLD"
+      content: "Brisbane, QLD",
     },
     {
       icon: Clock,
       title: "Response Time",
-      content: "Within 24 hours"
-    }
+      content: "Within 24 hours",
+    },
   ];
 
   return (
-    <section id="contact" className="py-20 bg-off-white">
+    <section
+      id="contact"
+      className="min-h-screen py-20 bg-off-white flex items-center snap-start"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Contact Info */}
           <div className="contact-info">
             <h2 className="section-title font-montserrat font-bold text-3xl md:text-4xl text-dark-gray mb-6">
-              Ready to Grow Your <span className="text-bright-orange">Social Following?</span>
+              Ready to Grow Your{" "}
+              <span className="text-bright-orange">Social Following?</span>
             </h2>
             <p className="text-gray-600 text-lg leading-relaxed mb-8">
-              Send us a message, and we'll get back to you within 24 hours with a custom strategy for your business.
+              Send us a message, and we'll get back to you within 24 hours with
+              a custom strategy for your business.
             </p>
 
             {/* Contact Details */}
@@ -105,9 +117,11 @@ export default function ContactSection() {
                       <IconComponent className="h-5 w-5 text-soft-blue" />
                     </div>
                     <div>
-                      <p className="font-semibold text-dark-gray">{item.title}</p>
+                      <p className="font-semibold text-dark-gray">
+                        {item.title}
+                      </p>
                       {item.href ? (
-                        <a 
+                        <a
                           href={item.href}
                           className="text-soft-blue hover:text-bright-orange transition-colors duration-300"
                         >
@@ -126,7 +140,7 @@ export default function ContactSection() {
           {/* Contact Form */}
           <div className="contact-form">
             <Form {...form}>
-              <form 
+              <form
                 onSubmit={form.handleSubmit(onSubmit)}
                 className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 space-y-6"
               >
@@ -136,7 +150,9 @@ export default function ContactSection() {
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-sm font-semibold text-dark-gray">Your Name</FormLabel>
+                      <FormLabel className="text-sm font-semibold text-dark-gray">
+                        Your Name
+                      </FormLabel>
                       <FormControl>
                         <Input
                           placeholder="Your Name"
@@ -155,7 +171,9 @@ export default function ContactSection() {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-sm font-semibold text-dark-gray">Email Address</FormLabel>
+                      <FormLabel className="text-sm font-semibold text-dark-gray">
+                        Email Address
+                      </FormLabel>
                       <FormControl>
                         <Input
                           type="email"
@@ -175,7 +193,9 @@ export default function ContactSection() {
                   name="business"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-sm font-semibold text-dark-gray">Business Name</FormLabel>
+                      <FormLabel className="text-sm font-semibold text-dark-gray">
+                        Business Name
+                      </FormLabel>
                       <FormControl>
                         <Input
                           placeholder="Your Café or Shop Name"
@@ -194,7 +214,9 @@ export default function ContactSection() {
                   name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-sm font-semibold text-dark-gray">Tell us about your goals</FormLabel>
+                      <FormLabel className="text-sm font-semibold text-dark-gray">
+                        Tell us about your goals
+                      </FormLabel>
                       <FormControl>
                         <Textarea
                           rows={4}

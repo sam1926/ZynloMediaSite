@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Smartphone, TrendingUp, Users, Heart } from "lucide-react";
+import heroimg from "./heroimg.jpg";
 
 export default function HeroSection() {
   const scrollToContact = () => {
@@ -69,7 +70,7 @@ export default function HeroSection() {
                     {/* Post image placeholder */}
                     <div className="w-full h-40 bg-gradient-to-br from-amber-200 to-orange-300 rounded-xl flex items-center justify-center">
                       <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
-                        <Users className="w-8 h-8 text-white" />
+                      <img src={heroimg} alt="Brisbane" className="w-full h-full object-cover" />
                       </div>
                     </div>
                     {/* Engagement metrics */}

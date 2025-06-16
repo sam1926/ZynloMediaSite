@@ -68,12 +68,14 @@ export default function HeroSection() {
                       <Heart className="w-4 h-4 text-red-500 fill-current" />
                     </div>
                     {/* Post image placeholder */}
-                    <div className="w-full h-40 bg-gradient-to-br from-amber-200 to-orange-300 rounded-xl flex items-center justify-center">
-                     <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center overflow-hidden">
-  <img src={heroimg} alt="Brisbane" className="w-full h-full object-cover" />
+                    <div className="w-full h-40 rounded-xl overflow-hidden">
+  <img
+    src={heroimg}
+    alt="Brisbane"
+    className="w-full h-full object-cover"
+  />
 </div>
 
-                    </div>
                     {/* Engagement metrics */}
                     <div className="flex items-center justify-between text-xs">
                       <div className="flex space-x-4">

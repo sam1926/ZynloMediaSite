@@ -1,5 +1,5 @@
 import React from 'react';
-import favicon from './favicon-32x32.png'; // Adjust path if needed
+import favicon from './zynlologo.png'; // Adjust path if needed
 
 export default function Logo() {
   return (

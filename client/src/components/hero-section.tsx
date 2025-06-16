@@ -62,7 +62,7 @@ export default function HeroSection() {
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <div className="w-8 h-8 bg-soft-blue rounded-full"></div>
-                        <div className="text-xs font-semibold">Brisbane Café</div>
+                        <div className="text-xs font-semibold">Brisbane</div>
                       </div>
                       <Heart className="w-4 h-4 text-red-500 fill-current" />
                     </div>

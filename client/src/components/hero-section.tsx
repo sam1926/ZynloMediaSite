@@ -81,11 +81,11 @@ export default function HeroSection() {
                       <div className="flex space-x-4">
                         <div className="flex items-center space-x-1">
                           <Heart className="w-3 h-3 text-red-500 fill-current" />
-                          <span>247</span>
+                          <span>24.7k</span>
                         </div>
                         <div className="flex items-center space-x-1">
                           <Users className="w-3 h-3 text-gray-500" />
-                          <span>23</span>
+                          <span>2300</span>
                         </div>
                       </div>
                       <span className="text-gray-500">2h</span>

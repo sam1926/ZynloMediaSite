@@ -19,7 +19,7 @@ export default function Footer() {
   ];
 
   const socialLinks = [
-    { label: "Instagram", icon: Instagram, href: "#https://www.instagram.com/zynlomedia/" },
+    { label: "Instagram", icon: Instagram, href: "https://www.instagram.com/zynlomedia/" },
    // { label: "Facebook", icon: Facebook, href: "#" },
   //  { label: "LinkedIn", icon: Linkedin, href: "#" }
   ];

@@ -16,8 +16,8 @@ export default function AboutSection() {
           <div className="about-image text-center lg:text-left">
             <div className="relative inline-block">
               <div className="w-80 h-80 bg-gradient-to-br from-soft-blue/20 to-bright-orange/20 rounded-full border-4 border-soft-blue shadow-xl flex items-center justify-center">
-                <Users className="w-32 h-32 text-soft-blue" />
-              </div>
+  <img src="/zynlologo.png" alt="ZynloMedia Logo" className="w-32 h-32 object-contain" />
+</div>
               <div className="absolute -bottom-4 -right-4 bg-bright-orange text-white p-4 rounded-full shadow-lg">
                 <Rocket className="w-6 h-6" />
               </div>

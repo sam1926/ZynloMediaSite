@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Smartphone, TrendingUp, Users, Heart } from "lucide-react";
 import heroimg from "./heroimg.jpg";
-
+import { Buildings } from "lucide-react";
 export default function HeroSection() {
   const scrollToContact = () => {
     const element = document.getElementById("contact");
@@ -62,7 +62,12 @@ export default function HeroSection() {
                     {/* Header bar */}
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
-                        <div className="w-8 h-8 bg-soft-blue rounded-full"></div>
+                        
+
+<div className="w-8 h-8 p-1 rounded-full bg-soft-blue">
+  <Buildings className="w-6 h-6 text-gray-800" />
+</div>
+
                         <div className="text-xs font-semibold">Brisbane</div>
                       </div>
                       <Heart className="w-4 h-4 text-red-500 fill-current" />
